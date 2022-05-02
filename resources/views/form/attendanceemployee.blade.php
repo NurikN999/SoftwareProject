@@ -93,7 +93,7 @@
                 <div class="col-md-4">
                     <div class="card punch-status">
                         <div class="card-body">
-                            <h5 class="card-title">Timesheet <small class="text-muted">11 Mar 2019</small></h5>
+                            <h5 class="card-title">Timesheet <small class="text-muted">{{date('d-m-Y')}}</small></h5>
                             <div class="col-sm-5">
                                 In
                                 <div class="form-group form-focus">
@@ -125,6 +125,9 @@
                                             <p>Overtime</p>
                                             <h6>3 hrs</h6>
                                         </div>
+                                    </div>
+                                    <div class="col-sm-6" style="margin: 10px auto 0;">
+                                        <a href="#" class="btn btn-success btn-block"> Submit </a>
                                     </div>
                                 </div>
                             </div>
@@ -322,9 +325,6 @@
 
         </div>
         <!-- /Page Content -->
-
-
-    </div>
     <!-- /Page Wrapper -->
     @section('script')
     @endsection
