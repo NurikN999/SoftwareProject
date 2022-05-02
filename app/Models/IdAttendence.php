@@ -9,6 +9,16 @@ class IdAttendence extends Model
 {
     use HasFactory;
 
-    public $timestamps=true;
+    protected $fillable = [
+        'id',
+        'type',
+        'user_id',
+        'overtime',
+        'day',
+        'punch_in',
+        'punch_out',
+        'punch_production',
+        'punch_break',
+    ];
 
 }

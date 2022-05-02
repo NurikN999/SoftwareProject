@@ -292,26 +292,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>19 Feb 2019</td>
-                                    <td>10 AM</td>
-                                    <td>7 PM</td>
-                                    <td>9 hrs</td>
-                                    <td>1 hrs</td>
-                                    <td>0</td>
-                                    <td>Manual</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>20 Feb 2019</td>
-                                    <td>10 AM</td>
-                                    <td>7 PM</td>
-                                    <td>9 hrs</td>
-                                    <td>1 hrs</td>
-                                    <td>0</td>
-                                    <td>Card</td>
-                                </tr>
+                                @foreach($attendances as $attendance)
+                                    <tr>
+                                        <td>{{$attendance->id}}</td>
+                                        <td>{{$attendance->day}}</td>
+                                        <td>{{$attendance->punch_in}}</td>
+                                        <td>{{$attendance->punch_out}}</td>
+                                        <td>{{$attendance->production}}</td>
+                                        <td>{{$attendance->break}}</td>
+                                        <td>{{$attendance->overtime}}</td>
+                                        <td>{{$attendance->type}}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

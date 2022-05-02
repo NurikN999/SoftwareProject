@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\IdAttendence;
+use Illuminate\Support\Facades\DB;
 
 class AttendenceController extends Controller
 {
