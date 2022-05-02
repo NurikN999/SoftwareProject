@@ -9,5 +9,6 @@ class IdAttendence extends Model
 {
     use HasFactory;
 
+    public $timestamps=true;
 
 }

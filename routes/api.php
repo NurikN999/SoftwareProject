@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AttendenceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post("enter", [AttendenceController::class, 'enter']);
