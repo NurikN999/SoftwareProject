@@ -79,68 +79,62 @@
     <div class="page-wrapper">
         <!-- Page Content -->
         <div class="content container-fluid">
+
             <div class="row">
-                <div class="col-md-12">
-                    <div class="welcome-box">
-                        <div class="welcome-img">
-                            <img src="{{ URL::to('/assets/images/'. Auth::user()->avatar) }}" alt="{{ Auth::user()->name }}">
-                        </div>
-                        <div class="welcome-det">
-                            <h3>Welcome, {{ Auth::user()->name }}</h3>
-                            <p>{{ $todayDate }}</p>
-                        </div>
+                <div class="col-lg-8 col-md-8 card-img">
+                    <img src="{{url('assets/img/airastana.png')}}" alt="" width="180px"; height="120px">
+                </div>
+                <div class="col-lg-4 col-md-4 align-self-center">
+                    <p>
+                        {{$todayDate}}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="dash-card">
+                        <section>
+                            <div class="card">
+                                <div class="card-body" style="display:flex; flex-direction: row; width: 80%; margin: 0 auto">
+                                    <div class="text col-lg-8 col-md-8" style="display: flex; flex-direction: column; justify-content: center;">
+                                        <h3 class="card-title" style="color: #4D4BAC; margin-bottom: 12px; font-size: 32px;font-weight: bold">
+                                            Welcome back, {{\Illuminate\Support\Facades\Auth::user()->name}}!
+                                        </h3>
+                                        <p style="font-size: 12px;color: #9799D9; width: 260px;">
+                                            Из самого сердца Евразии мы создаем одну из лучших авиакомпаний в мире.
+                                        </p>
+                                    </div>
+
+                                    <div class="img col-md-4 col-lg-4" style="text-align: center">
+                                        <img src="{{url('assets/img/discussion-test.svg')}}" alt="" class="card-img" style="width: 170px; height: 170px">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
-
             <div class="row">
-                <div class="col-lg-8 col-md-8">
-                </div>
-
                 <div class="col-lg-4 col-md-4">
-                    <div class="dash-sidebar">
-
+                    <div class="dash-card">
                         <section>
-                            <h5 class="dash-title">Your Leave</h5>
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="time-list">
-                                        <div class="dash-stats-list">
-                                            <h4>4.5</h4>
-                                            <p>Leave Taken</p>
-                                        </div>
-                                        <div class="dash-stats-list">
-                                            <h4>12</h4>
-                                            <p>Remaining</p>
-                                        </div>
-                                    </div>
-                                    <div class="request-btn">
-                                        <a class="btn btn-primary" href="#">Apply Leave</a>
-                                    </div>
+                                    <h4 class="card-title" style="color: #4D4BAC">
+                                        My Team
+                                    </h4>
                                 </div>
                             </div>
                         </section>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8">
+                    <div class="dash-card">
                         <section>
-                            <h5 class="dash-title">Your time off allowance</h5>
                             <div class="card">
-                                <div class="card-body">
-                                    <div class="time-list">
-                                        <div class="dash-stats-list">
-                                            <h4>5.0 Hours</h4>
-                                            <p>Approved</p>
-                                        </div>
-                                        <div class="dash-stats-list">
-                                            <h4>15 Hours</h4>
-                                            <p>Remaining</p>
-                                        </div>
-                                    </div>
-                                    <div class="request-btn">
-                                        <a class="btn btn-primary" href="#">Apply Time Off</a>
-                                    </div>
-                                </div>
+                                <div class="card-body"></div>
                             </div>
                         </section>
-
                     </div>
                 </div>
             </div>

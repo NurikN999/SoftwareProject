@@ -8,9 +8,9 @@
 	<meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
 	<meta name="author" content="SoengSouy Admin Template">
 	<meta name="robots" content="noindex, nofollow">
-	<title>Dashboard - HRMS</title>
+	<title>Air Astana</title>
 	<!-- Favicon -->
-	<link rel="shortcut icon" type="image/x-icon" href="{{ URL::to('assets/img/favicon.png') }}">
+	<link rel="shortcut icon" type="image/x-icon" href="{{ URL::to('assets/img/logo-512.png') }}">
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="{{ URL::to('assets/css/bootstrap.min.css') }}">
 	<!-- Fontawesome CSS -->
@@ -48,7 +48,9 @@
 		<div class="header">
 			<!-- Logo -->
 			<div class="header-left">
-				<a href="{{ route('home') }}" class="logo"> <img src="{{ URL::to('assets/img/logo.png') }}" width="40" height="40" alt=""> </a>
+				<a href="{{ route('home') }}" class="logo">
+                    <img src="{{ URL::to('/assets/img/logo.svg') }}" width="120" height="40" alt="">
+                </a>
 			</div>
 			<!-- /Logo -->
 			<a id="toggle_btn" href="javascript:void(0);">
@@ -63,15 +65,15 @@
 			<!-- Header Menu -->
 			<ul class="nav user-menu">
 				<!-- Search -->
-				<li class="nav-item">
-					<div class="top-nav-search">
-						<a href="javascript:void(0);" class="responsive-search"> <i class="fa fa-search"></i> </a>
-						<form action="search.html">
-							<input class="form-control" type="text" placeholder="Search here">
-							<button class="btn" type="submit"><i class="fa fa-search"></i></button>
-						</form>
-					</div>
-				</li>
+{{--				<li class="nav-item">--}}
+{{--					<div class="top-nav-search">--}}
+{{--						<a href="javascript:void(0);" class="responsive-search"> <i class="fa fa-search"></i> </a>--}}
+{{--						<form action="search.html">--}}
+{{--							<input class="form-control" type="text" placeholder="Search here">--}}
+{{--							<button class="btn" type="submit"><i class="fa fa-search"></i></button>--}}
+{{--						</form>--}}
+{{--					</div>--}}
+{{--				</li>--}}
 				<!-- /Search -->
 				<!-- Flag -->
 				<li class="nav-item dropdown has-arrow flag-nav">
@@ -81,15 +83,10 @@
                     </div>
 				</li>
 				<!-- /Flag -->
-				<!-- Notifications -->
-				<!-- /Notifications -->
-				<!-- Message Notifications -->
-				<!-- /Message Notifications -->
 				<li class="nav-item dropdown has-arrow main-drop">
 					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-						<span class="user-img">
-						<img src="{{ URL::to('/assets/images/'. Auth::user()->avatar) }}" alt="{{ Auth::user()->name }}">
-						<span class="status online"></span></span>
+{{--						<span class="user-img">--}}
+{{--						</span>--}}
 						<span>{{ Auth::user()->name }}</span>
 					</a>
                     <div class="dropdown-menu">

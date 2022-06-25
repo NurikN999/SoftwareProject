@@ -1,7 +1,9 @@
 <div class="header">
     <!-- Logo -->
     <div class="header-left">
-        <a href="{{ route('home') }}" class="logo"> <img src="{{ URL::to('assets/img/logo.png') }}" width="40" height="40" alt=""> </a>
+        <a href="{{ route('home') }}" class="logo">
+            <img src="{{url('/images/logo.svg')}}" width="150" height="40" alt="">
+        </a>
     </div>
     <!-- /Logo -->
     <a id="toggle_btn" href="javascript:void(0);">
