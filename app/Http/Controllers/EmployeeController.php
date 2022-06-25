@@ -12,13 +12,19 @@ use App\Models\module_permission;
 
 class EmployeeController extends Controller
 {
+
+    public function getUsers()
+    {
+        $users = \Illuminate\Support\Facades\DB::table('users')->get();
+        return view('dashboard.emdashboard', ['users' => $users]);
+    }
     // all employee card view
     public function cardAllEmployee(Request $request)
     {
         $users = DB::table('users')
                     ->join('employees', 'users.rec_id', '=', 'employees.employee_id')
                     ->select('users.*', 'employees.birth_date', 'employees.gender', 'employees.company')
-                    ->get(); 
+                    ->get();
         $userList = DB::table('users')->get();
         $permission_lists = DB::table('permission_lists')->get();
         return view('form.allemployeecard',compact('users','userList','permission_lists'));
@@ -62,7 +68,7 @@ class EmployeeController extends Controller
                 $employee->employee_id  = $request->employee_id;
                 $employee->company      = $request->company;
                 $employee->save();
-    
+
                 for($i=0;$i<count($request->id_count);$i++)
                 {
                     $module_permissions = [
@@ -78,7 +84,7 @@ class EmployeeController extends Controller
                     ];
                     DB::table('module_permissions')->insert($module_permissions);
                 }
-                
+
                 DB::commit();
                 Toastr::success('Add new employee successfully :)','Success');
                 return redirect()->route('all/employee/card');
@@ -145,7 +151,7 @@ class EmployeeController extends Controller
 
             User::where('id',$request->id)->update($updateUser);
             Employee::where('id',$request->id)->update($updateEmployee);
-        
+
             DB::commit();
             Toastr::success('updated record successfully :)','Success');
             return redirect()->route('all/employee/card');
@@ -260,7 +266,7 @@ class EmployeeController extends Controller
         $users = DB::table('users')
                     ->join('employees', 'users.rec_id', '=', 'employees.employee_id')
                     ->select('users.*', 'employees.birth_date', 'employees.gender', 'employees.company')
-                    ->get(); 
+                    ->get();
         $permission_lists = DB::table('permission_lists')->get();
         $userList = DB::table('users')->get();
 
@@ -370,7 +376,7 @@ class EmployeeController extends Controller
                 $department = new department;
                 $department->department = $request->department;
                 $department->save();
-    
+
                 DB::commit();
                 Toastr::success('Add new department successfully :)','Success');
                 return redirect()->route('form/departments/page');
@@ -397,7 +403,7 @@ class EmployeeController extends Controller
                 'department'=>$request->department,
             ];
             department::where('id',$request->id)->update($department);
-        
+
             DB::commit();
             Toastr::success('updated record successfully :)','Success');
             return redirect()->route('form/departments/page');
@@ -409,14 +415,14 @@ class EmployeeController extends Controller
     }
 
     /** delete record department */
-    public function deleteRecordDepartment(Request $request) 
+    public function deleteRecordDepartment(Request $request)
     {
         try {
 
             department::destroy($request->id);
             Toastr::success('Department deleted successfully :)','Success');
             return redirect()->back();
-        
+
         } catch(\Exception $e) {
 
             DB::rollback();

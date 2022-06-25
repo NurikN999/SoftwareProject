@@ -9,34 +9,7 @@
         <div class="sidebar-inner slimscroll">
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
-                    <li class="menu-title">
-                        <span>Main</span>
-                    </li>
-                    <li class="submenu">
-                        <a href="#" class="noti-dot">
-                            <i class="la la-dashboard"></i>
-                            <span> Dashboard</span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <ul style="display: none;">
-                            <li><a class="active" href="{{ route('em/dashboard') }}">Employee Dashboard</a></li>
-                        </ul>
-                    </li>
-                    @if (Auth::user()->role_name=='Admin')
-                        <li class="menu-title"> <span>Authentication</span> </li>
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="la la-user-secret"></i>
-                                <span> User Controller</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul style="display: none;">
-                                <li><a href="{{ route('userManagement') }}">All User</a></li>
-                                <li><a href="{{ route('activity/log') }}">Activity Log</a></li>
-                                <li><a href="{{ route('activity/login/logout') }}">Activity User</a></li>
-                            </ul>
-                        </li>
-                    @endif
+
                     <li class="menu-title"> <span>Employees</span> </li>
                     <li class="submenu">
                         <a href="#">
@@ -80,7 +53,7 @@
         <!-- Page Content -->
         <div class="content container-fluid">
 
-            <div class="row">
+            <div class="row" style="padding-top: 10px">
                 <div class="col-lg-8 col-md-8 card-img">
                     <img src="{{url('assets/img/airastana.png')}}" alt="" width="180px"; height="120px">
                 </div>
@@ -121,8 +94,16 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title" style="color: #4D4BAC">
-                                        My Team
+                                        My Team - Bakha
                                     </h4>
+
+                                    <p>Bakytbek - manager on duty</p>
+                                    <p>Meruyert - supervisor </p>
+                                    <p>Salih - supervisor </p>
+                                    <p>Arunaz - supervisor </p>
+                                    <p>Zhuldyz - agent</p>
+                                    <p>Aizhan - agent</p>
+                                    <p>Laura - agent</p>
                                 </div>
                             </div>
                         </section>
@@ -132,7 +113,25 @@
                     <div class="dash-card">
                         <section>
                             <div class="card">
-                                <div class="card-body"></div>
+                                <div class="card-body text-center">
+                                    <h1 style="padding-top: 68px; color: #4D4BAC; font-weight: bold">
+                                        Until the end:
+                                    </h1>
+                                    <div class="justify-content-center" id="clockdiv" style="display: flex; flex-direction: row; font-size: 32px; font-weight: bold; padding-bottom: 99px; padding-left: 109px; padding-right: 109px">
+                                        <div style="color: #838383">
+                                            <span class="days"></span>
+                                            <div class="smalltext">Days</div>
+                                        </div>
+                                        <div style="margin-left: 20px; color: #838383">
+                                            <span class="hours"></span>
+                                            <div class="smalltext">Hours</div>
+                                        </div>
+                                        <div style="margin-left: 20px; color: #838383">
+                                            <span class="minutes"></span>
+                                            <div class="smalltext">Minutes</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </section>
                     </div>
@@ -141,5 +140,49 @@
         </div>
         <!-- /Page Content -->
     </div>
+
+    <script>
+        function getTimeRemaining(endtime) {
+            var t = Date.parse(endtime) - Date.parse(new Date());
+            var seconds = Math.floor((t / 1000) % 60);
+            var minutes = Math.floor((t / 1000 / 60) % 60);
+            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+            var days = Math.floor(t / (1000 * 60 * 60 * 24));
+            return {
+                'total': t,
+                'days': days,
+                'hours': hours,
+                'minutes': minutes,
+                'seconds': seconds
+            };
+        }
+
+        function initializeClock(id, endtime) {
+            var clock = document.getElementById(id);
+            var daysSpan = clock.querySelector('.days');
+            var hoursSpan = clock.querySelector('.hours');
+            var minutesSpan = clock.querySelector('.minutes');
+            var secondsSpan = clock.querySelector('.seconds');
+
+            function updateClock() {
+                var t = getTimeRemaining(endtime);
+
+                daysSpan.innerHTML = t.days;
+                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+                if (t.total <= 0) {
+                    clearInterval(timeinterval);
+                }
+            }
+
+            updateClock();
+            var timeinterval = setInterval(updateClock, 1000);
+        }
+
+        var deadline = new Date(Date.parse(new Date()) + 128 * 24 * 60 * 60 * 1000);
+        initializeClock('clockdiv', deadline);
+    </script>
     <!-- /Page Wrapper -->
 @endsection

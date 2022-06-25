@@ -48,7 +48,7 @@
 		<div class="header">
 			<!-- Logo -->
 			<div class="header-left">
-				<a href="{{ route('home') }}" class="logo">
+				<a href="{{ route('em/dashboard') }}" class="logo">
                     <img src="{{ URL::to('/assets/img/logo.svg') }}" width="120" height="40" alt="">
                 </a>
 			</div>
@@ -76,12 +76,12 @@
 {{--				</li>--}}
 				<!-- /Search -->
 				<!-- Flag -->
-				<li class="nav-item dropdown has-arrow flag-nav">
-					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"> <img src="{{ URL::to('assets/img/flags/us.png') }}" alt="" height="20"> <span>English</span> </a>
-					<div class="dropdown-menu dropdown-menu-right">
-                        <a href="javascript:void(0);" class="dropdown-item"> <img src="{{ URL::to('assets/img/flags/us.png') }}" alt="" height="16"> English </a>
-                    </div>
-				</li>
+{{--				<li class="nav-item dropdown has-arrow flag-nav">--}}
+{{--					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"> <img src="{{ URL::to('assets/img/flags/us.png') }}" alt="" height="20"> <span>English</span> </a>--}}
+{{--					<div class="dropdown-menu dropdown-menu-right">--}}
+{{--                        <a href="javascript:void(0);" class="dropdown-item"> <img src="{{ URL::to('assets/img/flags/us.png') }}" alt="" height="16"> English </a>--}}
+{{--                    </div>--}}
+{{--				</li>--}}
 				<!-- /Flag -->
 				<li class="nav-item dropdown has-arrow main-drop">
 					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">

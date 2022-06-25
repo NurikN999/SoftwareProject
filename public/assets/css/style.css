@@ -1496,7 +1496,7 @@ table.dataTable thead > tr > td.sorting {
 -----------------------*/
 
 .sidebar {
-    background-color: #34444c;
+    background-color: white;
     border-right: 1px solid transparent;
     bottom: 0;
     left: 0;
@@ -1541,7 +1541,7 @@ table.dataTable thead > tr > td.sorting {
 	background-color: rgba(0, 0, 0, 0.2);
 }
 .menu-title {
-    color: #ebecf1;
+    color: #838383;
     display: flex;
     font-size: 14px;
     opacity: 1;
@@ -1752,6 +1752,10 @@ table.dataTable thead > tr > td.sorting {
 	padding-top: 60px;
 	position: relative;
 	transition: all 0.2s ease-in-out;
+    background-image: url("../img/frame.svg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
 }
 .page-wrapper > .content {
 	padding: 30px;
