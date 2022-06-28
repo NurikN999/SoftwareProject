@@ -86,6 +86,7 @@
                         <section>
                             <div class="card">
                                 <div class="card-body">
+                                    @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Team Bakha')
                                     <h4 class="card-title" style="color: #4D4BAC">
                                         My Team - Bakha
                                     </h4>
@@ -97,6 +98,7 @@
                                     <p>Zhuldyz - agent</p>
                                     <p>Aizhan - agent</p>
                                     <p>Laura - agent</p>
+                                    @endif
                                 </div>
                             </div>
                         </section>
