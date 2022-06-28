@@ -12,6 +12,21 @@
             </div>
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
+                    @if (Auth::user()->role_name=='Gulnara')
+                        <li class="menu-title"> <span>Authentication</span> </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="la la-user-secret"></i>
+                                <span> User Controller</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul style="display: none;">
+                                <li><a href="{{ route('userManagement') }}">All User</a></li>
+                                <li><a href="{{ route('activity/log') }}">Activity Log</a></li>
+                                <li><a href="{{ route('activity/login/logout') }}">Activity User</a></li>
+                            </ul>
+                        </li>
+                    @endif
                     <li class="submenu">
                         <a href="#">
                             <i class="la la-star"></i>
@@ -99,6 +114,64 @@
                                     <p>Aizhan - agent</p>
                                     <p>Laura - agent</p>
                                     @endif
+
+                                        @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Team Arshat')
+                                            <h4 class="card-title" style="color: #4D4BAC">
+                                                My Team - Arshat
+                                            </h4>
+
+                                            <p>Arshat - manager on duty</p>
+                                            <p>Nikolay - supervisor </p>
+                                            <p>Natasha - supervisor </p>
+                                            <p>Aqtoty - supervisor </p>
+                                            <p>Alena - agent</p>
+                                            <p>Meruert - agent</p>
+                                            <p>Zhazira - agent</p>
+                                        @endif
+
+                                        @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Team Ibrahim')
+                                            <h4 class="card-title" style="color: #4D4BAC">
+                                                My Team - Ibrahim/Berik
+                                            </h4>
+
+                                            <p>Ibrahim - manager on duty</p>
+                                            <p>Maksym - supervisor </p>
+                                            <p>Ruslan - supervisor </p>
+                                            <p>Tanya - supervisor </p>
+                                            <p>Umitay - agent</p>
+                                            <p>Almagul - agent</p>
+                                            <p>Mayra - agent</p>
+                                        @endif
+
+                                        @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Team Mika')
+                                            <h4 class="card-title" style="color: #4D4BAC">
+                                                My Team - Mika
+                                            </h4>
+
+                                            <p>Aygul - manager on duty</p>
+                                            <p>Nurzhan - supervisor </p>
+                                            <p>Fariza - supervisor </p>
+                                            <p>Gulnur - supervisor </p>
+                                            <p>Gulnura M - agent</p>
+                                            <p>Laura N - agent</p>
+                                            <p>Sulu - agent</p>
+                                        @endif
+
+                                        @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Gulnara')
+                                            <h4 class="card-title" style="color: #4D4BAC">
+                                                My Teams
+                                            </h4>
+
+                                            <p>Team Bakha - Bakytbek</p>
+                                            <p>Team Arshat - Arshat</p>
+                                            <p>Team Ibrahim - Ibrahim</p>
+                                            <p>Team Mika - Mika</p>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                        @endif
                                 </div>
                             </div>
                         </section>
