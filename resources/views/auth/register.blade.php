@@ -36,9 +36,9 @@
                             {{-- insert defaults --}}
                             <input type="hidden" class="image" name="image" value="photo_defaults.jpg">
                             <div class="form-group">
-                                <label class="col-form-label">Role Name</label>
+                                <label class="col-form-label">Your Team</label>
                                 <select class="select @error('role_name') is-invalid @enderror" name="role_name" id="role_name">
-                                    <option selected disabled>-- Select Role Name --</option>
+                                    <option selected disabled>-- Select Your Team --</option>
                                     @foreach ($role as $name)
                                         <option value="{{ $name->role_type }}">{{ $name->role_type }}</option>
                                     @endforeach
