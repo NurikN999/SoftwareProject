@@ -77,11 +77,11 @@ class LoginController extends Controller
         if (Auth::attempt(['email'=>$email,'password'=>$password,'status'=>'Active'])) {
             DB::table('activity_logs')->insert($activityLog);
             Toastr::success('Login successfully :)','Success');
-            return redirect()->intended('home');
+            return redirect()->intended('em/dashboard');
         }elseif (Auth::attempt(['email'=>$email,'password'=>$password,'status'=> null])) {
             DB::table('activity_logs')->insert($activityLog);
             Toastr::success('Login successfully :)','Success');
-            return redirect()->intended('home');
+            return redirect()->intended('em/dashboard');
         }
         else{
             Toastr::error('fail, WRONG USERNAME OR PASSWORD :)','Error');

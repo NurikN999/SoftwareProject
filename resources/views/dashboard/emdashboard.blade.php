@@ -7,14 +7,15 @@
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-inner slimscroll">
+            <div class="sidebar-menu">
+
+            </div>
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
-
-                    <li class="menu-title"> <span>Employees</span> </li>
                     <li class="submenu">
                         <a href="#">
-                            <i class="la la-user"></i>
-                            <span> Employees</span>
+                            <i class="la la-star"></i>
+                            <span> Achievements</span>
                             <span class="menu-arrow"></span>
                         </a>
                         <ul style="display: none;">
@@ -25,9 +26,8 @@
                             <li><a href="{{ route('attendance/employee/page') }}">Attendance (Employee)</a></li>
                         </ul>
                     </li>
-                    <li class="menu-title"> <span>HR</span> </li>
 
-                    <li class="submenu"> <a href="#"><i class="la la-pie-chart"></i>
+                    <li class="submenu"> <a href="#"><i class="la la-times-circle"></i>
                             <span> Reports </span> <span class="menu-arrow"></span></a>
                         <ul style="display: none;">
                             <li><a href="{{ route('form/leave/reports/page') }}"> Leave Report </a></li>
@@ -35,13 +35,6 @@
                         </ul>
                     </li>
 
-                    <li class="menu-title"> <span>Pages</span> </li>
-                    <li class="submenu"> <a href="#"><i class="la la-user"></i>
-                            <span> Profile </span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="profile.html"> Employee Profile </a></li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -130,6 +123,10 @@
                                             <span class="minutes"></span>
                                             <div class="smalltext">Minutes</div>
                                         </div>
+                                        <div style="margin-left: 20px; color: #838383">
+                                            <span class="seconds"></span>
+                                            <div class="smalltext">Seconds</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -181,7 +178,8 @@
             var timeinterval = setInterval(updateClock, 1000);
         }
 
-        var deadline = new Date(Date.parse(new Date()) + 128 * 24 * 60 * 60 * 1000);
+        var deadline = new Date(Date.parse(new Date()) + ((Date.parse('Nov 1, 2022') - Date.parse(new Date())) / 3600000 / 24) * 24 * 60 * 60 * 1000);
+        console.log(Date.parse('Nov 1, 2022'));
         initializeClock('clockdiv', deadline);
     </script>
     <!-- /Page Wrapper -->

@@ -38,13 +38,13 @@ Route::get('/', function () {
 
 Route::group(['middleware'=>'auth'],function()
 {
-    Route::get('home',function()
+    Route::get('em/dashboard',function()
     {
-        return view('home');
+        return view('dashboard.emdashboard');
     });
-    Route::get('home',function()
+    Route::get('em/dashboard',function()
     {
-        return view('home');
+        return view('dashboard.emdashboard');
     });
 });
 

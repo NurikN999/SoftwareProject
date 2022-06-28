@@ -1534,7 +1534,7 @@ table.dataTable thead > tr > td.sorting {
 	padding: 0 20px;
 }
 .sidebar-menu li a:hover {
-	color: #fff;
+	color: #9C8761;
 }
 .sidebar-menu li.active a {
 	color: #fff;
@@ -1590,7 +1590,7 @@ table.dataTable thead > tr > td.sorting {
     padding: 0;
 }
 .mobile-user-menu a:hover {
-	color: #fff;
+	color: #9C8761;
 }
 .mobile-user-menu > .dropdown-menu {
 	min-width: 130px;
@@ -6637,6 +6637,13 @@ ul.comment-list li ul.children {
 }
 .welcome-img {
 	margin-right: 15px;
+}
+.welcome-img-sidebar {
+
+}
+.welcome-img-sidebar img {
+    border-radius: 50%;
+    width: 100px;
 }
 .welcome-img img {
     border-radius: 8px;
