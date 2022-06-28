@@ -178,7 +178,8 @@
             var timeinterval = setInterval(updateClock, 1000);
         }
 
-        var deadline = new Date(Date.parse(new Date()) + 128 * 24 * 60 * 60 * 1000);
+        var deadline = new Date(Date.parse(new Date()) + ((Date.parse('Nov 1, 2022') - Date.parse(new Date())) / 3600000 / 24) * 24 * 60 * 60 * 1000);
+        console.log(Date.parse('Nov 1, 2022'));
         initializeClock('clockdiv', deadline);
     </script>
     <!-- /Page Wrapper -->
