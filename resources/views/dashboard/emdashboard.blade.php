@@ -101,9 +101,9 @@
                         <section>
                             <div class="card">
                                 <div class="card-body">
-                                    @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Team Bakha')
+                                    @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Amsterdam')
                                     <h4 class="card-title" style="color: #4D4BAC">
-                                        My Team - Bakha
+                                        My Team - Amsterdam
                                     </h4>
 
                                     <p>Bakytbek - manager on duty</p>
@@ -115,9 +115,9 @@
                                     <p>Laura - agent</p>
                                     @endif
 
-                                        @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Team Arshat')
+                                        @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Istanbul')
                                             <h4 class="card-title" style="color: #4D4BAC">
-                                                My Team - Arshat
+                                                My Team - Istanbul
                                             </h4>
 
                                             <p>Arshat - manager on duty</p>
@@ -129,9 +129,9 @@
                                             <p>Zhazira - agent</p>
                                         @endif
 
-                                        @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Team Ibrahim')
+                                        @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Aqtau')
                                             <h4 class="card-title" style="color: #4D4BAC">
-                                                My Team - Ibrahim/Berik
+                                                My Team - Aqtau
                                             </h4>
 
                                             <p>Ibrahim - manager on duty</p>
@@ -143,9 +143,9 @@
                                             <p>Mayra - agent</p>
                                         @endif
 
-                                        @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Team Mika')
+                                        @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Seoul')
                                             <h4 class="card-title" style="color: #4D4BAC">
-                                                My Team - Mika
+                                                My Team - Seoul
                                             </h4>
 
                                             <p>Aygul - manager on duty</p>
@@ -162,10 +162,10 @@
                                                 My Teams
                                             </h4>
 
-                                            <p>Team Bakha - Bakytbek</p>
-                                            <p>Team Arshat - Arshat</p>
-                                            <p>Team Ibrahim - Ibrahim</p>
-                                            <p>Team Mika - Mika</p>
+                                            <p>Amsterdam - Bakytbek</p>
+                                            <p>Istanbul - Arshat</p>
+                                            <p>Aqtau - Ibrahim</p>
+                                            <p>Seoul - Mika</p>
                                             <br>
                                             <br>
                                             <br>
