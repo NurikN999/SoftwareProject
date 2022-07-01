@@ -20,11 +20,10 @@ class CreateRoleTypeUsersTable extends Migration
         });
 
         DB::table('role_type_users')->insert([
-            ['role_type' => 'Team Bakha'],
-            ['role_type' => 'Team ChikiPuki'],
-            ['role_type' => 'Team Berik'],
-            ['role_type' => 'Team'],
-            ['role_type' => 'Gulnara']
+            ['role_type' => 'Amsterdam'],
+            ['role_type' => 'Istanbul'],
+            ['role_type' => 'Aqtau'],
+            ['role_type' => 'Seoul']
         ]);
     }
 
