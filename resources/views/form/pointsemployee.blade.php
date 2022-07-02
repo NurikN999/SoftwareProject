@@ -15,7 +15,7 @@
                         <ul style="display: none;">
                             <li><a href="{{ route('all/employee/card') }}">All Employees</a></li>
                             <li><a href="{{ route('form/holidays/new') }}">Holidays</a></li>
-                            <li><a href="{{route('form/leavesemployee/new')}}">Leaves (Employee)</a></li>
+                            <li><a href="{{route('form/pointsemployee')}}">Leaves (Employee)</a></li>
                             <li><a href="{{ route('form/leavesettings/page') }}">Leave Settings</a></li>
                             <li><a href="{{ route('attendance/employee/page') }}">Attendance (Employee)</a></li>
                         </ul>
@@ -43,14 +43,19 @@
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="page-title">Leaves <span id="year"></span></h3>
+                        <h3 class="page-title">Teams Standings <span id="year"></span></h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item active">Leaves</li>
+                            <li class="breadcrumb-item active">Teams Position Table</li>
                         </ul>
                     </div>
-                    <div class="col-auto float-right ml-auto">
-                        <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_leave"><i class="fa fa-plus"></i> Add Leave</a>
-                    </div>
+                    @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Gulnara')
+                        <div class="col-auto float-right ml-auto">
+                            <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_leave"><i class="fa fa-plus"></i> Add Points</a>
+                        </div>
+                        <div class="col-auto float-right ml-auto">
+                            <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_leave"><i class="fa fa-minus"></i> Remove Points</a>
+                        </div>
+                    @endif
                 </div>
             </div>
 
@@ -168,58 +173,56 @@
         <!-- /Page Content -->
 
 		<!-- Add Leave Modal -->
-        <div id="add_leave" class="modal custom-modal fade" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Add Leave</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label>Leave Type <span class="text-danger">*</span></label>
-                                <select class="select">
-                                    <option>Select Leave Type</option>
-                                    <option>Casual Leave 12 Days</option>
-                                    <option>Medical Leave</option>
-                                    <option>Loss of Pay</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>From <span class="text-danger">*</span></label>
-                                <div class="cal-icon">
-                                    <input class="form-control datetimepicker" type="text">
+        @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Gulnara')
+            <div id="add_leave" class="modal custom-modal fade" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add Points</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label>Select Team <span class="text-danger">*</span></label>
+                                    <select class="select">
+                                        <option>Select Team To Add Points</option>
+                                        @foreach($teams as $team)
+                                            <option>{{$team->role_type}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label>To <span class="text-danger">*</span></label>
-                                <div class="cal-icon">
-                                    <input class="form-control datetimepicker" type="text">
+                                <div class="form-group">
+                                    <label>When <span class="text-danger">*</span></label>
+                                    <div class="cal-icon">
+                                        <input class="form-control datetimepicker" type="text">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Number of days <span class="text-danger">*</span></label>
-                                <input class="form-control" readonly type="text">
-                            </div>
-                            <div class="form-group">
-                                <label>Remaining Leaves <span class="text-danger">*</span></label>
-                                <input class="form-control" readonly value="12" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label>Leave Reason <span class="text-danger">*</span></label>
-                                <textarea rows="4" class="form-control"></textarea>
-                            </div>
-                            <div class="submit-section">
-                                <button class="btn btn-primary submit-btn">Submit</button>
-                            </div>
-                        </form>
+{{--                                <div class="form-group">--}}
+{{--                                    <label>To <span class="text-danger">*</span></label>--}}
+{{--                                    <div class="cal-icon">--}}
+{{--                                        <input class="form-control datetimepicker" type="text">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+                                <div class="form-group">
+                                    <label>Number of points <span class="text-danger">*</span></label>
+                                    <input class="form-control" readonly type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Reason <span class="text-danger">*</span></label>
+                                    <textarea rows="4" class="form-control"></textarea>
+                                </div>
+                                <div class="submit-section">
+                                    <button class="btn btn-primary submit-btn">Submit</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
         <!-- /Add Leave Modal -->
 
         <!-- Edit Leave Modal -->

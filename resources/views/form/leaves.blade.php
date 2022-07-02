@@ -43,14 +43,16 @@
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="page-title">Leaves <span id="year"></span></h3>
+                        <h3 class="page-title">Team Standings <span id="year"></span></h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item active">Leaves</li>
+                            <li class="breadcrumb-item active">Points</li>
                         </ul>
                     </div>
-                    <div class="col-auto float-right ml-auto">
-                        <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_leave"><i class="fa fa-plus"></i> Add Leave</a>
-                    </div>
+                    @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Gulnara')
+                        <div class="col-auto float-right ml-auto">
+                            <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_leave"><i class="fa fa-plus"></i> Add Leave</a>
+                        </div>
+                    @endif
                 </div>
             </div>
             <!-- Leave Statistics -->
@@ -205,52 +207,54 @@
         <!-- /Page Content -->
 
         <!-- Add Leave Modal -->
-        <div id="add_leave" class="modal custom-modal fade" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Add Leave</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="{{ route('form/leaves/save') }}" method="POST">
-                            @csrf
-                            <div class="form-group">
-                                <label>Leave Type <span class="text-danger">*</span></label>
-                                <select class="select" id="leaveType" name="leave_type">
-                                    <option selected disabled>Select Leave Type</option>
-                                    <option value="Casual Leave 12 Days">Casual Leave 12 Days</option>
-                                    <option value="Medical Leave">Medical Leave</option>
-                                    <option value="Loss of Pay">Loss of Pay</option>
-                                </select>
-                            </div>
-                            <input type="hidden" class="form-control" id="rec_id" name="rec_id" value="{{ Auth::user()->rec_id }}">
-                            <div class="form-group">
-                                <label>From <span class="text-danger">*</span></label>
-                                <div class="cal-icon">
-                                    <input type="text" class="form-control datetimepicker" id="from_date" name="from_date">
+        @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Gulnara')
+            <div id="add_leave" class="modal custom-modal fade" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add Leave</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ route('form/leaves/save') }}" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <label>Leave Type <span class="text-danger">*</span></label>
+                                    <select class="select" id="leaveType" name="leave_type">
+                                        <option selected disabled>Select Leave Type</option>
+                                        <option value="Casual Leave 12 Days">Casual Leave 12 Days</option>
+                                        <option value="Medical Leave">Medical Leave</option>
+                                        <option value="Loss of Pay">Loss of Pay</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label>To <span class="text-danger">*</span></label>
-                                <div class="cal-icon">
-                                    <input type="text" class="form-control datetimepicker" id="to_date" name="to_date">
+                                <input type="hidden" class="form-control" id="rec_id" name="rec_id" value="{{ Auth::user()->rec_id }}">
+                                <div class="form-group">
+                                    <label>From <span class="text-danger">*</span></label>
+                                    <div class="cal-icon">
+                                        <input type="text" class="form-control datetimepicker" id="from_date" name="from_date">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Leave Reason <span class="text-danger">*</span></label>
-                                <textarea rows="4" class="form-control" id="leave_reason" name="leave_reason"></textarea>
-                            </div>
-                            <div class="submit-section">
-                                <button type="submit" class="btn btn-primary submit-btn">Submit</button>
-                            </div>
-                        </form>
+                                <div class="form-group">
+                                    <label>To <span class="text-danger">*</span></label>
+                                    <div class="cal-icon">
+                                        <input type="text" class="form-control datetimepicker" id="to_date" name="to_date">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Leave Reason <span class="text-danger">*</span></label>
+                                    <textarea rows="4" class="form-control" id="leave_reason" name="leave_reason"></textarea>
+                                </div>
+                                <div class="submit-section">
+                                    <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
         <!-- /Add Leave Modal -->
 
         <!-- Edit Leave Modal -->

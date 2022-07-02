@@ -161,7 +161,7 @@ Route::controller(HolidayController::class)->group(function () {
 // ----------------------------- form leaves ------------------------------//
 Route::controller(LeavesController::class)->group(function () {
     Route::get('form/leaves/new', 'leaves')->middleware('auth')->name('form/leaves/new');
-    Route::get('form/leavesemployee/new', 'leavesEmployee')->middleware('auth')->name('form/leavesemployee/new');
+    Route::get('form/pointsemployee', 'leavesEmployee')->middleware('auth')->name('form/pointsemployee');
     Route::post('form/leaves/save', 'saveRecord')->middleware('auth')->name('form/leaves/save');
     Route::post('form/leaves/edit', 'editRecordLeave')->middleware('auth')->name('form/leaves/edit');
     Route::post('form/leaves/edit/delete','deleteLeave')->middleware('auth')->name('form/leaves/edit/delete');
@@ -169,7 +169,7 @@ Route::controller(LeavesController::class)->group(function () {
 
 // ----------------------------- form attendance  ------------------------------//
 Route::controller(LeavesController::class)->group(function () {
-    Route::get('form/leavesettings/page', 'leaveSettings')->middleware('auth')->name('form/leavesettings/page');
+    Route::get('form/pointsemployee/page', 'leaveSettings')->middleware('auth')->name('form/leavesettings/page');
     Route::get('attendance/page', 'attendanceIndex')->middleware('auth')->name('attendance/page');
     Route::get('attendance/employee/page', 'AttendanceEmployee')->middleware('auth')->name('attendance/employee/page');
     Route::get('form/shiftscheduling/page', 'shiftScheduLing')->middleware('auth')->name('form/shiftscheduling/page');

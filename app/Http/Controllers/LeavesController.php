@@ -129,7 +129,8 @@ class LeavesController extends Controller
     // leaves Employee
     public function leavesEmployee()
     {
-        return view('form.leavesemployee');
+        $teams = \Illuminate\Support\Facades\DB::table('role_type_users')->get();
+        return view('form.pointsemployee', ['teams' => $teams]);
     }
 
     // shiftscheduling
