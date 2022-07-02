@@ -50,10 +50,10 @@
                     </div>
                     @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Gulnara')
                         <div class="col-auto float-right ml-auto">
-                            <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_leave"><i class="fa fa-plus"></i> Add Points</a>
+                            <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_point"><i class="fa fa-plus"></i> Add Points</a>
                         </div>
                         <div class="col-auto float-right ml-auto">
-                            <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_leave"><i class="fa fa-minus"></i> Remove Points</a>
+                            <a href="#" class="btn add-btn" data-toggle="modal" data-target="#remove_point"><i class="fa fa-minus"></i> Remove Points</a>
                         </div>
                     @endif
                 </div>
@@ -174,7 +174,7 @@
 
 		<!-- Add Leave Modal -->
         @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Gulnara')
-            <div id="add_leave" class="modal custom-modal fade" role="dialog">
+            <div id="add_point" class="modal custom-modal fade" role="dialog">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -224,6 +224,59 @@
             </div>
         @endif
         <!-- /Add Leave Modal -->
+
+        <!-- Remove Point Modal -->
+        @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Gulnara')
+            <div id="remove_point" class="modal custom-modal fade" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Remove Points</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label>Select Team <span class="text-danger">*</span></label>
+                                    <select class="select">
+                                        <option>Select Team To Add Points</option>
+                                        @foreach($teams as $team)
+                                            <option>{{$team->role_type}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>When <span class="text-danger">*</span></label>
+                                    <div class="cal-icon">
+                                        <input class="form-control datetimepicker" type="text">
+                                    </div>
+                                </div>
+                                {{--                                <div class="form-group">--}}
+                                {{--                                    <label>To <span class="text-danger">*</span></label>--}}
+                                {{--                                    <div class="cal-icon">--}}
+                                {{--                                        <input class="form-control datetimepicker" type="text">--}}
+                                {{--                                    </div>--}}
+                                {{--                                </div>--}}
+                                <div class="form-group">
+                                    <label>Number of points <span class="text-danger">*</span></label>
+                                    <input class="form-control" readonly type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Reason <span class="text-danger">*</span></label>
+                                    <textarea rows="4" class="form-control"></textarea>
+                                </div>
+                                <div class="submit-section">
+                                    <button class="btn btn-primary submit-btn">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+        <!-- /Remove Point Modal-->
 
         <!-- Edit Leave Modal -->
         <div id="edit_leave" class="modal custom-modal fade" role="dialog">

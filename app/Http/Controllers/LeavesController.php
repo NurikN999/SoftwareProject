@@ -126,6 +126,19 @@ class LeavesController extends Controller
         return view('form.attendanceemployee', ['attendances' => $attendances]);
     }
 
+    //add points
+    public function addPoints(Request $request)
+    {
+        $request->validate(
+            [
+                'team'   => 'required|string|max:255',
+                'points'    => 'required|integer',
+                'date_when'      => 'required|string|max:255',
+                'points_reason' => 'required|string|max:255',
+            ]
+        );
+    }
+
     // leaves Employee
     public function leavesEmployee()
     {
