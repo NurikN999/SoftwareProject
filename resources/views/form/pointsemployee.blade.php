@@ -13,10 +13,8 @@
                             <span class="menu-arrow"></span>
                         </a>
                         <ul style="display: none;">
-                            <li><a href="{{ route('all/employee/card') }}">All Employees</a></li>
                             <li><a href="{{ route('form/holidays/new') }}">Holidays</a></li>
-                            <li><a href="{{route('form/pointsemployee')}}">Leaves (Employee)</a></li>
-                            <li><a href="{{ route('form/leavesettings/page') }}">Leave Settings</a></li>
+                            <li><a href="{{route('form/pointsemployee/new')}}">Points of Employee</a></li>
                             <li><a href="{{ route('attendance/employee/page') }}">Attendance (Employee)</a></li>
                         </ul>
                     </li>
@@ -50,11 +48,11 @@
                     </div>
                     @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Gulnara')
                         <div class="col-auto float-right ml-auto">
-                            <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_point"><i class="fa fa-plus"></i> Add Points</a>
+                            <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_point"><i class="fa fa-plus"></i> Add/Remove Points</a>
                         </div>
-                        <div class="col-auto float-right ml-auto">
-                            <a href="#" class="btn add-btn" data-toggle="modal" data-target="#remove_point"><i class="fa fa-minus"></i> Remove Points</a>
-                        </div>
+{{--                        <div class="col-auto float-right ml-auto">--}}
+{{--                            <a href="#" class="btn add-btn" data-toggle="modal" data-target="#remove_point"><i class="fa fa-minus"></i> Remove Points</a>--}}
+{{--                        </div>--}}
                     @endif
                 </div>
             </div>
@@ -94,75 +92,28 @@
                         <table class="table table-striped custom-table mb-0 datatable">
                             <thead>
                                 <tr>
-                                    <th>Leave Type</th>
-                                    <th>From</th>
-                                    <th>To</th>
-                                    <th>No of Days</th>
+                                    <th>Team Name</th>
+                                    <th>Amount Of Points</th>
+                                    <th>Date</th>
                                     <th>Reason</th>
-                                    <th class="text-center">Status</th>
-                                    <th>Approved by</th>
-                                    <th class="text-right">Actions</th>
+                                    <th>Approved By</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Casual Leave</td>
-                                    <td>8 Mar 2019</td>
-                                    <td>9 Mar 2019</td>
-                                    <td>2 days</td>
-                                    <td>Going to Hospital</td>
-                                    <td class="text-center">
-                                        <div class="action-label">
-                                            <a class="btn btn-white btn-sm btn-rounded" href="javascript:void(0);">
-                                                <i class="fa fa-dot-circle-o text-purple"></i> New
-                                            </a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <a href="profile.html" class="avatar avatar-xs"><img src="{{URL::to('assets/img/profiles/avatar-09.jpg')}}" alt=""></a>
-                                            <a href="#">Richard Miles</a>
-                                        </h2>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Casual Leave</td>
-                                    <td>10 Jan 2019</td>
-                                    <td>10 Jan 2019</td>
-                                    <td>First Half</td>
-                                    <td>Going to Hospital</td>
-                                    <td class="text-center">
-                                        <div class="action-label">
-                                            <a class="btn btn-white btn-sm btn-rounded" href="javascript:void(0);">
-                                                <i class="fa fa-dot-circle-o text-danger"></i> Declined
-                                            </a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <a href="profile.html" class="avatar avatar-xs"><img src="{{URL::to('assets/img/profiles/avatar-09.jpg')}}" alt=""></a>
-                                            <a href="#">Richard Miles</a>
-                                        </h2>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @foreach($points as $point)
+                                    <tr>
+                                        <td>{{$point->team_name}}</td>
+                                        <td>{{$point->amount_of_points}}</td>
+                                        <td>{{$point->date}}</td>
+                                        <td>{{$point->reason}}</td>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a href="#" class="avatar avatar-xs"><img src="{{URL::to('assets/img/profiles/gulnara.jpg')}}" alt=""></a>
+                                                <a href="#">Dekeyeva Gulnara</a>
+                                            </h2>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -178,26 +129,27 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Add Points</h5>
+                            <h5 class="modal-title">Add/Remove Points</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form action="{{route('form/pointsemployee/save')}}" method="POST">
+                                @csrf
                                 <div class="form-group">
                                     <label>Select Team <span class="text-danger">*</span></label>
-                                    <select class="select">
-                                        <option>Select Team To Add Points</option>
+                                    <select class="select" name="team_name">
+                                        <option selected disabled>Select Team To Add Points</option>
                                         @foreach($teams as $team)
-                                            <option>{{$team->role_type}}</option>
+                                            <option value="{{$team->role_type}}">{{$team->role_type}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>When <span class="text-danger">*</span></label>
                                     <div class="cal-icon">
-                                        <input class="form-control datetimepicker" type="text">
+                                        <input class="form-control datetimepicker" type="text" name="when_date">
                                     </div>
                                 </div>
 {{--                                <div class="form-group">--}}
@@ -208,11 +160,16 @@
 {{--                                </div>--}}
                                 <div class="form-group">
                                     <label>Number of points <span class="text-danger">*</span></label>
-                                    <input class="form-control" readonly type="text">
+                                    <input class="form-control" type="number" name="points">
                                 </div>
                                 <div class="form-group">
                                     <label>Reason <span class="text-danger">*</span></label>
-                                    <textarea rows="4" class="form-control"></textarea>
+                                    <select name="reason" id="reason" class="select">
+                                        <option selected disabled>Select Reason of Points</option>
+                                        @foreach($reasons as $reason)
+                                            <option value="{{$reason->reason_name}}">{{$reason->reason_name}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="submit-section">
                                     <button class="btn btn-primary submit-btn">Submit</button>
@@ -226,134 +183,134 @@
         <!-- /Add Leave Modal -->
 
         <!-- Remove Point Modal -->
-        @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Gulnara')
-            <div id="remove_point" class="modal custom-modal fade" role="dialog">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Remove Points</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label>Select Team <span class="text-danger">*</span></label>
-                                    <select class="select">
-                                        <option>Select Team To Add Points</option>
-                                        @foreach($teams as $team)
-                                            <option>{{$team->role_type}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>When <span class="text-danger">*</span></label>
-                                    <div class="cal-icon">
-                                        <input class="form-control datetimepicker" type="text">
-                                    </div>
-                                </div>
-                                {{--                                <div class="form-group">--}}
-                                {{--                                    <label>To <span class="text-danger">*</span></label>--}}
-                                {{--                                    <div class="cal-icon">--}}
-                                {{--                                        <input class="form-control datetimepicker" type="text">--}}
-                                {{--                                    </div>--}}
-                                {{--                                </div>--}}
-                                <div class="form-group">
-                                    <label>Number of points <span class="text-danger">*</span></label>
-                                    <input class="form-control" readonly type="text">
-                                </div>
-                                <div class="form-group">
-                                    <label>Reason <span class="text-danger">*</span></label>
-                                    <textarea rows="4" class="form-control"></textarea>
-                                </div>
-                                <div class="submit-section">
-                                    <button class="btn btn-primary submit-btn">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
+{{--        @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Gulnara')--}}
+{{--            <div id="remove_point" class="modal custom-modal fade" role="dialog">--}}
+{{--                <div class="modal-dialog modal-dialog-centered" role="document">--}}
+{{--                    <div class="modal-content">--}}
+{{--                        <div class="modal-header">--}}
+{{--                            <h5 class="modal-title">Remove Points</h5>--}}
+{{--                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+{{--                                <span aria-hidden="true">&times;</span>--}}
+{{--                            </button>--}}
+{{--                        </div>--}}
+{{--                        <div class="modal-body">--}}
+{{--                            <form>--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label>Select Team <span class="text-danger">*</span></label>--}}
+{{--                                    <select class="select">--}}
+{{--                                        <option>Select Team To Add Points</option>--}}
+{{--                                        @foreach($teams as $team)--}}
+{{--                                            <option>{{$team->role_type}}</option>--}}
+{{--                                        @endforeach--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label>When <span class="text-danger">*</span></label>--}}
+{{--                                    <div class="cal-icon">--}}
+{{--                                        <input class="form-control datetimepicker" type="text">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                --}}{{--                                <div class="form-group">--}}
+{{--                                --}}{{--                                    <label>To <span class="text-danger">*</span></label>--}}
+{{--                                --}}{{--                                    <div class="cal-icon">--}}
+{{--                                --}}{{--                                        <input class="form-control datetimepicker" type="text">--}}
+{{--                                --}}{{--                                    </div>--}}
+{{--                                --}}{{--                                </div>--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label>Number of points <span class="text-danger">*</span></label>--}}
+{{--                                    <input class="form-control" readonly type="text">--}}
+{{--                                </div>--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label>Reason <span class="text-danger">*</span></label>--}}
+{{--                                    <textarea rows="4" class="form-control"></textarea>--}}
+{{--                                </div>--}}
+{{--                                <div class="submit-section">--}}
+{{--                                    <button class="btn btn-primary submit-btn">Submit</button>--}}
+{{--                                </div>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        @endif--}}
         <!-- /Remove Point Modal-->
 
         <!-- Edit Leave Modal -->
-        <div id="edit_leave" class="modal custom-modal fade" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Edit Leave</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label>Leave Type <span class="text-danger">*</span></label>
-                                <select class="select">
-                                    <option>Select Leave Type</option>
-                                    <option>Casual Leave 12 Days</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>From <span class="text-danger">*</span></label>
-                                <div class="cal-icon">
-                                    <input class="form-control datetimepicker" value="01-01-2019" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>To <span class="text-danger">*</span></label>
-                                <div class="cal-icon">
-                                    <input class="form-control datetimepicker" value="01-01-2019" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Number of days <span class="text-danger">*</span></label>
-                                <input class="form-control" readonly type="text" value="2">
-                            </div>
-                            <div class="form-group">
-                                <label>Remaining Leaves <span class="text-danger">*</span></label>
-                                <input class="form-control" readonly value="12" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label>Leave Reason <span class="text-danger">*</span></label>
-                                <textarea rows="4" class="form-control">Going to hospital</textarea>
-                            </div>
-                            <div class="submit-section">
-                                <button class="btn btn-primary submit-btn">Save</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--        <div id="edit_leave" class="modal custom-modal fade" role="dialog">--}}
+{{--            <div class="modal-dialog modal-dialog-centered" role="document">--}}
+{{--                <div class="modal-content">--}}
+{{--                    <div class="modal-header">--}}
+{{--                        <h5 class="modal-title">Edit Leave</h5>--}}
+{{--                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+{{--                            <span aria-hidden="true">&times;</span>--}}
+{{--                        </button>--}}
+{{--                    </div>--}}
+{{--                    <div class="modal-body">--}}
+{{--                        <form>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label>Leave Type <span class="text-danger">*</span></label>--}}
+{{--                                <select class="select">--}}
+{{--                                    <option>Select Leave Type</option>--}}
+{{--                                    <option>Casual Leave 12 Days</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label>From <span class="text-danger">*</span></label>--}}
+{{--                                <div class="cal-icon">--}}
+{{--                                    <input class="form-control datetimepicker" value="01-01-2019" type="text">--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label>To <span class="text-danger">*</span></label>--}}
+{{--                                <div class="cal-icon">--}}
+{{--                                    <input class="form-control datetimepicker" value="01-01-2019" type="text">--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label>Number of days <span class="text-danger">*</span></label>--}}
+{{--                                <input class="form-control" readonly type="text" value="2">--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label>Remaining Leaves <span class="text-danger">*</span></label>--}}
+{{--                                <input class="form-control" readonly value="12" type="text">--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label>Leave Reason <span class="text-danger">*</span></label>--}}
+{{--                                <textarea rows="4" class="form-control">Going to hospital</textarea>--}}
+{{--                            </div>--}}
+{{--                            <div class="submit-section">--}}
+{{--                                <button class="btn btn-primary submit-btn">Save</button>--}}
+{{--                            </div>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <!-- /Edit Leave Modal -->
 
         <!-- Delete Leave Modal -->
-        <div class="modal custom-modal fade" id="delete_approve" role="dialog">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="form-header">
-                            <h3>Delete Leave</h3>
-                            <p>Are you sure want to Cancel this leave?</p>
-                        </div>
-                        <div class="modal-btn delete-action">
-                            <div class="row">
-                                <div class="col-6">
-                                    <a href="javascript:void(0);" class="btn btn-primary continue-btn">Delete</a>
-                                </div>
-                                <div class="col-6">
-                                    <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--        <div class="modal custom-modal fade" id="delete_approve" role="dialog">--}}
+{{--            <div class="modal-dialog modal-dialog-centered">--}}
+{{--                <div class="modal-content">--}}
+{{--                    <div class="modal-body">--}}
+{{--                        <div class="form-header">--}}
+{{--                            <h3>Delete Leave</h3>--}}
+{{--                            <p>Are you sure want to Cancel this leave?</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="modal-btn delete-action">--}}
+{{--                            <div class="row">--}}
+{{--                                <div class="col-6">--}}
+{{--                                    <a href="javascript:void(0);" class="btn btn-primary continue-btn">Delete</a>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-6">--}}
+{{--                                    <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <!-- /Delete Leave Modal -->
 
     </div>

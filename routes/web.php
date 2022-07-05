@@ -161,7 +161,6 @@ Route::controller(HolidayController::class)->group(function () {
 // ----------------------------- form leaves ------------------------------//
 Route::controller(LeavesController::class)->group(function () {
     Route::get('form/leaves/new', 'leaves')->middleware('auth')->name('form/leaves/new');
-    Route::get('form/pointsemployee', 'leavesEmployee')->middleware('auth')->name('form/pointsemployee');
     Route::post('form/leaves/save', 'saveRecord')->middleware('auth')->name('form/leaves/save');
     Route::post('form/leaves/edit', 'editRecordLeave')->middleware('auth')->name('form/leaves/edit');
     Route::post('form/leaves/edit/delete','deleteLeave')->middleware('auth')->name('form/leaves/edit/delete');
@@ -232,3 +231,8 @@ Route::controller(TrainingTypeController::class)->group(function () {
     Route::post('form//training/type/delete', 'deleteTrainingType')->middleware('auth')->name('form//training/type/delete');
 });
 
+// ----------------------------- points type  ------------------------------//
+Route::controller(\App\Http\Controllers\PointsController::class)->group(function () {
+    Route::get('form/pointsemployee/new', 'teams')->middleware('auth')->name('form/pointsemployee/new');
+    Route::post('form/pointsemployee/save', 'addData')->middleware('auth')->name('form/pointsemployee/save');
+});
