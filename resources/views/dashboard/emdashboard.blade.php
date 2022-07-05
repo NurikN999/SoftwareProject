@@ -12,21 +12,6 @@
             </div>
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
-                    @if (Auth::user()->role_name=='Gulnara')
-                        <li class="menu-title"> <span>Authentication</span> </li>
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="la la-user-secret"></i>
-                                <span> User Controller</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul style="display: none;">
-                                <li><a href="{{ route('userManagement') }}">All User</a></li>
-                                <li><a href="{{ route('activity/log') }}">Activity Log</a></li>
-                                <li><a href="{{ route('activity/login/logout') }}">Activity User</a></li>
-                            </ul>
-                        </li>
-                    @endif
                     <li class="submenu">
                         <a href="#">
                             <i class="la la-star"></i>
@@ -36,17 +21,17 @@
                         <ul style="display: none;">
                             <li><a href="{{ route('form/holidays/new') }}">Holidays</a></li>
                             <li><a href="{{route('form/pointsemployee/new')}}">Points of Employee</a></li>
-                            <li><a href="{{ route('attendance/employee/page') }}">Attendance (Employee)</a></li>
+                            <li><a href="{{ route('teams/standings/page') }}">Standings of Teams</a></li>
                         </ul>
                     </li>
 
-                    <li class="submenu"> <a href="#"><i class="la la-times-circle"></i>
-                            <span> Reports </span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="{{ route('form/leave/reports/page') }}"> Leave Report </a></li>
-                            <li><a href="{{ route('form/daily/reports/page') }}"> Daily Report </a></li>
-                        </ul>
-                    </li>
+                    {{--                    <li class="submenu"> <a href="#"><i class="la la-times-circle"></i>--}}
+                    {{--                            <span> Reports </span> <span class="menu-arrow"></span></a>--}}
+                    {{--                        <ul style="display: none;">--}}
+                    {{--                            <li><a href="{{ route('form/leave/reports/page') }}"> Leave Report </a></li>--}}
+                    {{--                            <li><a href="{{ route('form/daily/reports/page') }}"> Daily Report </a></li>--}}
+                    {{--                        </ul>--}}
+                    {{--                    </li>--}}
 
                 </ul>
             </div>

@@ -15,17 +15,17 @@
                         <ul style="display: none;">
                             <li><a href="{{ route('form/holidays/new') }}">Holidays</a></li>
                             <li><a href="{{route('form/pointsemployee/new')}}">Points of Employee</a></li>
-                            <li><a href="{{ route('attendance/employee/page') }}">Attendance (Employee)</a></li>
+                            <li><a href="{{ route('teams/standings/page') }}">Standings of Teams</a></li>
                         </ul>
                     </li>
 
-                    <li class="submenu"> <a href="#"><i class="la la-times-circle"></i>
-                            <span> Reports </span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="{{ route('form/leave/reports/page') }}"> Leave Report </a></li>
-                            <li><a href="{{ route('form/daily/reports/page') }}"> Daily Report </a></li>
-                        </ul>
-                    </li>
+                    {{--                    <li class="submenu"> <a href="#"><i class="la la-times-circle"></i>--}}
+                    {{--                            <span> Reports </span> <span class="menu-arrow"></span></a>--}}
+                    {{--                        <ul style="display: none;">--}}
+                    {{--                            <li><a href="{{ route('form/leave/reports/page') }}"> Leave Report </a></li>--}}
+                    {{--                            <li><a href="{{ route('form/daily/reports/page') }}"> Daily Report </a></li>--}}
+                    {{--                        </ul>--}}
+                    {{--                    </li>--}}
 
                 </ul>
             </div>
@@ -41,9 +41,9 @@
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="page-title">Teams Standings <span id="year"></span></h3>
+                        <h3 class="page-title">Teams Points History <span id="year"></span></h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item active">Teams Position Table</li>
+                            <li class="breadcrumb-item active">Here you can see history of team points</li>
                         </ul>
                     </div>
                     @if(\Illuminate\Support\Facades\Auth::user()->role_name == 'Gulnara')
@@ -58,32 +58,32 @@
             </div>
 
             <!-- Leave Statistics -->
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="stats-info">
-                        <h6>Annual Leave</h6>
-                        <h4>12</h4>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stats-info">
-                        <h6>Medical Leave</h6>
-                        <h4>3</h4>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stats-info">
-                        <h6>Other Leave</h6>
-                        <h4>4</h4>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stats-info">
-                        <h6>Remaining Leave</h6>
-                        <h4>5</h4>
-                    </div>
-                </div>
-            </div>
+{{--            <div class="row">--}}
+{{--                <div class="col-md-3">--}}
+{{--                    <div class="stats-info">--}}
+{{--                        <h6>Annual Leave</h6>--}}
+{{--                        <h4>12</h4>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3">--}}
+{{--                    <div class="stats-info">--}}
+{{--                        <h6>Medical Leave</h6>--}}
+{{--                        <h4>3</h4>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3">--}}
+{{--                    <div class="stats-info">--}}
+{{--                        <h6>Other Leave</h6>--}}
+{{--                        <h4>4</h4>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3">--}}
+{{--                    <div class="stats-info">--}}
+{{--                        <h6>Remaining Leave</h6>--}}
+{{--                        <h4>5</h4>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <!-- /Leave Statistics -->
 
             <div class="row">

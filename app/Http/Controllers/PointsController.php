@@ -39,4 +39,20 @@ class PointsController extends Controller
             'points' => $points,
         ]);
     }
+
+    public function teamPoints()
+    {
+        $teams = [
+            'Amsterdam' => intval(DB::table('points')->where('team_name', 'Amsterdam')->sum('amount_of_points')),
+            'Istanbul' => intval(DB::table('points')->where('team_name', 'Istanbul')->sum('amount_of_points')),
+            'Aqtau' => intval(DB::table('points')->where('team_name', 'Aqtau')->sum('amount_of_points')),
+            'Seoul' => intval(DB::table('points')->where('team_name', 'Seoul')->sum('amount_of_points'))
+        ];
+
+
+
+        return view('form.attendanceemployee', [
+            'allPoints' => $teams
+        ]);
+    }
 }

@@ -169,8 +169,8 @@ Route::controller(LeavesController::class)->group(function () {
 // ----------------------------- form attendance  ------------------------------//
 Route::controller(LeavesController::class)->group(function () {
     Route::get('form/pointsemployee/page', 'leaveSettings')->middleware('auth')->name('form/leavesettings/page');
-    Route::get('attendance/page', 'attendanceIndex')->middleware('auth')->name('attendance/page');
-    Route::get('attendance/employee/page', 'AttendanceEmployee')->middleware('auth')->name('attendance/employee/page');
+//    Route::get('attendance/page', 'attendanceIndex')->middleware('auth')->name('attendance/page');
+//    Route::get('attendance/employee/page', 'AttendanceEmployee')->middleware('auth')->name('attendance/employee/page');
     Route::get('form/shiftscheduling/page', 'shiftScheduLing')->middleware('auth')->name('form/shiftscheduling/page');
     Route::get('form/shiftlist/page', 'shiftList')->middleware('auth')->name('form/shiftlist/page');
 });
@@ -235,4 +235,5 @@ Route::controller(TrainingTypeController::class)->group(function () {
 Route::controller(\App\Http\Controllers\PointsController::class)->group(function () {
     Route::get('form/pointsemployee/new', 'teams')->middleware('auth')->name('form/pointsemployee/new');
     Route::post('form/pointsemployee/save', 'addData')->middleware('auth')->name('form/pointsemployee/save');
+    Route::get('teams/standings/page', 'teamPoints')->middleware('auth')->name('teams/standings/page');
 });
