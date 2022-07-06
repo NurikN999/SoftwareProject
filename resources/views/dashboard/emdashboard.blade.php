@@ -148,7 +148,7 @@
                                             <p>Amsterdam - Bakytbek</p>
                                             <p>Istanbul - Arshat</p>
                                             <p>Aqtau - Ibrahim</p>
-                                            <p>Seoul - Mika</p>
+                                            <p>Seoul - Aygul</p>
                                             <br>
                                             <br>
                                             <br>
