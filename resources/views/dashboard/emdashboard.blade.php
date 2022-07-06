@@ -64,7 +64,7 @@
                                         <h3 class="card-title" style="color: #4D4BAC; margin-bottom: 12px; font-size: 32px;font-weight: bold">
                                             Welcome back, {{\Illuminate\Support\Facades\Auth::user()->name}}!
                                         </h3>
-                                        <p style="font-size: 12px;color: #9799D9; width: 260px;">
+                                        <p style="font-size: 14px;color: #9799D9; width: 260px;">
                                             Из самого сердца Евразии мы создаем одну из лучших авиакомпаний в мире.
                                         </p>
                                     </div>
@@ -106,8 +106,8 @@
                                             <p>Arshat - manager on duty</p>
                                             <p>Nikolay - supervisor </p>
                                             <p>Natasha - supervisor </p>
-                                            <p>Aqtoty - supervisor </p>
-                                            <p>Alena - agent</p>
+                                            <p>Alena - supervisor</p>
+                                            <p>Aqtoty - agent </p>
                                             <p>Meruert - agent</p>
                                             <p>Zhazira - agent</p>
                                         @endif
@@ -117,7 +117,7 @@
                                                 My Team - Aqtau
                                             </h4>
 
-                                            <p>Ibrahim - manager on duty</p>
+                                            <p>Ibrahim - manager on duty(supervisor)</p>
                                             <p>Maksym - supervisor </p>
                                             <p>Ruslan - supervisor </p>
                                             <p>Tanya - supervisor </p>
@@ -135,7 +135,7 @@
                                             <p>Nurzhan - supervisor </p>
                                             <p>Fariza - supervisor </p>
                                             <p>Gulnur - supervisor </p>
-                                            <p>Gulnura M - agent</p>
+                                            <p>Gulnara M - agent</p>
                                             <p>Laura N - agent</p>
                                             <p>Sulu - agent</p>
                                         @endif
