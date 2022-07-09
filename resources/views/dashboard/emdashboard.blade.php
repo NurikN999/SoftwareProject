@@ -61,15 +61,15 @@
                             <div class="card">
                                 <div class="card-body" style="display:flex; flex-direction: row; width: 80%; margin: 0 auto">
                                     <div class="text col-lg-8 col-md-8" style="display: flex; flex-direction: column; justify-content: center;">
-                                        <h3 class="card-title" style="color: #4D4BAC; margin-bottom: 12px; font-size: 32px;font-weight: bold">
+                                        <h3 class="card-title" id="welcome">
                                             Welcome back, {{\Illuminate\Support\Facades\Auth::user()->name}}!
                                         </h3>
-                                        <p style="font-size: 14px;color: #9799D9; width: 260px;">
+                                        <p id="welcome-paragraph">
                                             Из самого сердца Евразии мы создаем одну из лучших авиакомпаний в мире.
                                         </p>
                                     </div>
 
-                                    <div class="img col-md-4 col-lg-4" style="text-align: center">
+                                    <div class="img col-md-4 col-lg-4" id="welcome-img">
                                         <img src="{{url('assets/img/discussion-test.svg')}}" alt="" class="card-img" style="width: 170px; height: 170px">
                                     </div>
                                 </div>
@@ -148,7 +148,8 @@
                                             <p>Amsterdam - Bakytbek</p>
                                             <p>Istanbul - Arshat</p>
                                             <p>Aqtau - Ibrahim</p>
-                                            <p>Seoul - Aygul</p>
+                                            <p>Seoul - Aygul
+                                            </p>
                                             <br>
                                             <br>
                                             <br>
@@ -165,10 +166,10 @@
                         <section>
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <h1 style="padding-top: 68px; color: #4D4BAC; font-weight: bold">
+                                    <h1 class="clock_header" style="padding-top: 68px; color: #4D4BAC; font-weight: bold">
                                         Until the end:
                                     </h1>
-                                    <div class="justify-content-center" id="clockdiv" style="display: flex; flex-direction: row; font-size: 32px; font-weight: bold; padding-bottom: 99px; padding-left: 109px; padding-right: 109px">
+                                    <div class="justify-content-center" id="clockdiv" style="">
                                         <div style="color: #838383">
                                             <span class="days"></span>
                                             <div class="smalltext">Days</div>
@@ -195,6 +196,39 @@
         </div>
         <!-- /Page Content -->
     </div>
+
+    <style>
+        #clockdiv
+        {
+            display: flex; flex-direction: row; font-size: 32px; font-weight: bold; padding-bottom: 99px; padding-left: 109px; padding-right: 109px
+        }
+        #welcome
+        {
+            color: #4D4BAC; margin-bottom: 12px; font-size: 32px;font-weight: bold
+        }
+        #welcome-paragraph
+        {
+            font-size: 14px;color: #9799D9; width: 260px;
+        }
+        #welcome-img
+        {
+            text-align: center
+        }
+        @media(max-width: 450px){
+            #clockdiv{
+                font-size: 20px;
+            }
+            #welcome{
+                font-size: 20px;
+            }
+            #welcome-paragraph{
+                font-size: 13px;
+            }
+            #welcome-img{
+                display: none;
+            }
+        }
+    </style>
 
     <script>
         function getTimeRemaining(endtime) {

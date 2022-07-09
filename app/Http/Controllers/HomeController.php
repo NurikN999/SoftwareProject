@@ -32,7 +32,7 @@ class HomeController extends Controller
     // employee dashboard
     public function emDashboard()
     {
-        $dt        = Carbon::now();
+        $dt        = Carbon::now('5');
         $todayDate = $dt->toDayDateTimeString();
         return view('dashboard.emdashboard',compact('todayDate'));
     }
